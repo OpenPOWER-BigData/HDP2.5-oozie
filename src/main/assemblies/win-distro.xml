@@ -1,0 +1,76 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<assembly>
+    <id>${project.version}</id>
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <fileSets>
+        <!-- Oozie Distro -->
+        <fileSet>
+          <directory>${basedir}/../distro/target/oozie-${project.version}-distro/oozie-${project.version}</directory>
+          <outputDirectory>/oozie-win-distro</outputDirectory>
+          <excludes>
+            <exclude>*.tar.gz</exclude>
+            <exclude>oozie-server/bin/*.tar.gz</exclude>
+          </excludes>
+        </fileSet>
+        <!-- Oozie client -->
+        <fileSet>
+          <directory>${basedir}/../client/target/oozie-client-${project.version}-incubating-client/oozie-client-${project.version}-incubating</directory>
+          <outputDirectory>/oozie-win-distro/oozie-client-${project.version}-incubating</outputDirectory>
+          <includes>
+            <include>**</include>
+          </includes>
+        </fileSet>
+        <!-- Oozie examples -->
+        <fileSet>
+          <directory>${basedir}/../examples/target/oozie-examples-${project.version}-examples/examples</directory>
+          <outputDirectory>/oozie-win-distro/examples</outputDirectory>
+          <includes>
+            <include>**</include>
+          </includes>
+        </fileSet>
+        <!-- Oozie sharelib -->
+        <fileSet>
+          <directory>${basedir}/../sharelib/target/oozie-sharelib-${project.version}/share</directory>
+          <outputDirectory>/oozie-win-distro/share</outputDirectory>
+          <includes>
+            <include>**</include>
+          </includes>
+        </fileSet>
+        <!-- extra_libs -->
+        <fileSet>
+          <directory>${basedir}/src/extra_libs</directory>
+          <outputDirectory>/extra_libs</outputDirectory>
+          <includes>
+            <include>**</include>
+          </includes>
+        </fileSet>
+        <!-- Service -->
+        <fileSet>
+          <directory>${basedir}/src/Service</directory>
+          <outputDirectory>/Service</outputDirectory>
+          <includes>
+            <include>**</include>
+          </includes>
+        </fileSet>
+    </fileSets>
+</assembly>

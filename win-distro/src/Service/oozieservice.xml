@@ -1,0 +1,9 @@
+<service>
+  <id>oozieservice</id>
+  <name>oozieservice</name>
+  <description>This service runs Isotope Oozie</description>
+  <executable>C:\Apps\dist\oozie\oozie-@oozie.version@\bin\oozied.cmd</executable>
+  <startargument>run</startargument>
+  <stopexecutable>C:\Apps\dist\oozie\oozie-@oozie.version@\bin\oozied.cmd</stopexecutable>
+  <stopargument>stop</stopargument>
+</service>
